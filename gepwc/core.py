@@ -1,3 +1,4 @@
+import os
 import sys
 import click
 from .__version import __version__
@@ -54,6 +55,10 @@ def pywc(file_txt, byte_calculate, lines_calculate, words_calculate, characters_
         click.echo(__version__)
 
     for file in file_txt:
+        abs_path = os.path.abspath(file)
+        if not os.path.exists(abs_path):
+            click.echo('File not found', err=True)
+            sys.exit(1)
         with open(file, 'r') as f:
             if byte_calculate:
                 byte_calculation(f)
