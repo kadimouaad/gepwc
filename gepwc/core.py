@@ -1,6 +1,6 @@
 import sys
 import click
-
+from .__version import __version__
 def byte_calculation(file_txt):
     size = 0
     for line in file_txt:
@@ -36,6 +36,7 @@ def words_calculation(file_txt):
     click.echo(word_counter)
 
 
+
 @click.group()
 def cli():
     pass
@@ -46,7 +47,12 @@ def cli():
 @click.option('--lines_calculate', '-l', is_flag=True, default=False,help="calculate the number of lines in a file")
 @click.option('--words_calculate', '-w', is_flag=True, default=False,help="calculate the number of words in a file")
 @click.option('--characters_calculate', '-m', is_flag=True, default=False, help="calculate the number of characters in a file")
-def pywc(file_txt, byte_calculate, lines_calculate, words_calculate, characters_calculate):
+@click.option('--version', '-V', is_flag=True, default=False, help="output the version of gepwc")
+
+def pywc(file_txt, byte_calculate, lines_calculate, words_calculate, characters_calculate, version):
+    if version:
+        click.echo(__version__)
+
     for file in file_txt:
         with open(file, 'r') as f:
             if byte_calculate:

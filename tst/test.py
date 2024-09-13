@@ -1,6 +1,7 @@
 from gepwc.core import pywc
 from click.testing import CliRunner
 
+
 def test_gepcat():
     runner = CliRunner()
     result = runner.invoke(pywc, ['assets/simple'])
@@ -36,3 +37,9 @@ def test_characters_count():
     result = runner.invoke(pywc, ['assets/simple', '-m'])
     assert result.exit_code == 0
     assert result.output == "number of characters: 12\n"
+
+def test_version():
+    runner = CliRunner()
+    result = runner.invoke(pywc, ['-V'])
+    assert result.exit_code == 0
+    assert result.output == "0.0.dev0\n"
