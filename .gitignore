@@ -2,3 +2,5 @@
 venv
 gepwc/__pycache__
 tst/__pycache__
+dist
+gepwc.egg-info
