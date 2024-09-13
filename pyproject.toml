@@ -3,6 +3,7 @@ name = "gepwc"
 dynamic = ["version"]
 dependencies = [
   "click",
+  "importlib_metadata"
 ]
 authors = [
   {name = "Mouaad kadi", email = "kadi.mouaad@gmail.com"},
