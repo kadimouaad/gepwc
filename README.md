@@ -5,7 +5,7 @@ Gepwc is a python version of linux tool **wc**, it performs many different tasks
 
 ```bash
 pip install gepwc
-gepcat -V
+gepwc -V
 ```
 # How to use:
 ### Calculate four necessary calculations:
